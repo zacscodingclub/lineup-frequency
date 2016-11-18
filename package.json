@@ -1,0 +1,14 @@
+{
+  "name": "lineup_frequency",
+  "version": "1.0.0",
+  "description": "DFS lineup analyzer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+  		"fast-csv": "~2.3.0"
+  	},
+  "author": "Zac Baston",
+  "license": "ISC"
+}
