@@ -18,9 +18,8 @@ function getRegex(fileName) {
     if(fileName.includes("nhl")) {
         return /C\W|W\W|D\W|G\W|UTIL\W/g;
     } else if (fileName.includes("nfl")) {
-        return /QB\W|RB\W|WR\W|TE\W|FLEX\W/g;
+        return /QB\W|RB\W|WR\W|TE\W|FLEX\W|DST\W/g;
     }
-
 }
 
 function getPlayersFromLineup(lineup, player) {
@@ -75,7 +74,9 @@ csv
     .on("data", function(row){
         var rowLineup = getPlayersFromLineup(row.Lineup, row.Player);
         processLineup(rowLineup);
+
         index ++;
+
     })
     .on("end", function() {
         var sortedPlayers = sortProperties(players);
@@ -84,16 +85,3 @@ csv
 
         exitMessage();
     })
-
-
-
-    // { Rank: '97',
-    //   EntryId: '557626952',
-    //   EntryName: 'SurlySue (4/8)',
-    //   TimeRemaining: '0',
-    //   Points: '47.2',
-    //   Lineup: 'C Tyler Bozak C Connor McDavid W James van Riemsdyk W Patrick Maroon W Mitchell Marner D Morgan Rielly D Ivan Provorov G Anders Nilsson UTIL Jordan Eberle',
-    //   '': '',
-    //   Player: 'Andrej Sekera',
-    //   '%Drafted': '2.60%',
-    //   FPTS: '0' }
